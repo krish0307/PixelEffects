@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow:hidden;
+    background: black;
+}
+#canvas1{
+    /* border: 2px solid white; */
+    position: absolute;
+    top:0;
+    left:0;
+    /* transform:translate(-50%,-50%);
+    width:800px;
+    height: 450px; */
+}

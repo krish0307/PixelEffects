@@ -1,12 +1,12 @@
 const myImage = new Image();
-myImage.src = 'image1.png';
+myImage.src = 'image1.jpg';
 
 
 myImage.addEventListener('load', function () {
     const canvas = document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
-    canvas.width = 800;
-    canvas.height = 450;
+    canvas.width = 900;
+    canvas.height = 600;
     ctx.drawImage(myImage, 0, 0, canvas.width, canvas.height);
 
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -48,7 +48,7 @@ myImage.addEventListener('load', function () {
             this.x = Math.random() * canvas.width;
             this.y = 0;
             this.speed = 0;
-            this.velocity = Math.random() * 0.5;
+            this.velocity = Math.random() * 1;
             this.size = Math.random() * 1.5 + 1;
             this.postitionx=Math.floor(this.x);
             this.postitiony=Math.floor(this.y);
@@ -59,7 +59,7 @@ myImage.addEventListener('load', function () {
             this.postitionx=Math.floor(this.x);
             this.postitiony=Math.floor(this.y);
             this.speed=mappedImage[this.postitiony][this.postitionx][0];
-            let movement=(2.5-this.speed)+this.velocity;
+            let movement=(2-this.speed)+this.velocity;
 
             this.y += movement;
             if (this.y >= canvas.height) {
@@ -70,7 +70,7 @@ myImage.addEventListener('load', function () {
 
         draw() {
             ctx.beginPath();
-            ctx.fillStyle = 'red';
+            ctx.fillStyle = 'blue';
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
             ctx.fill();
         }
@@ -86,7 +86,7 @@ myImage.addEventListener('load', function () {
 
     function animate() {
         // ctx.drawImage(myImage,0,0,canvas.width,canvas.height);
-        ctx.globalAlpha = 0.2;
+        ctx.globalAlpha = 0.5;
         ctx.fillStyle = 'rgb(0,0,0)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < particlesArray.length; i++) {
